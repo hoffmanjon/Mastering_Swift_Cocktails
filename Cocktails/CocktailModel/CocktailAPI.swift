@@ -8,8 +8,10 @@
 import Foundation
 
 //My API key, changed to a generic key prior to uploading to GitHub
+enum ApiKey: String {
+    case apiKey = "v1/1"
+}
 
-let apiKey = "v1/1"
 
 //List of URLs to use for retrieve lists of cocktails or details about a cocktail
 enum CocktailServiceCall: String {

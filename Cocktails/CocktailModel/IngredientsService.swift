@@ -13,7 +13,7 @@ It then uses the JSON decoder to pull parse the JSON data for the ingredients
  */
 struct IngredientService {
     static func load(_ call: IngredientServiceCall, parameter: String) async -> Ingredients? {
-        let urlString = call.rawValue.appending(parameter).replacingOccurrences(of: "$key", with: apiKey)
+        let urlString = call.rawValue.appending(parameter).replacingOccurrences(of: "$key", with: ApiKey.apiKey.rawValue)
         guard let url = URL(string: urlString) else {
             return nil
         }

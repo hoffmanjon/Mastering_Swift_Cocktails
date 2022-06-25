@@ -15,7 +15,7 @@ import Foundation
 struct CocktailService {
     static func load(_ call: CocktailServiceCall, parameter: String) async -> Cocktails? {
         let parameter = parameter.replacingOccurrences(of: " ", with: "%20")
-        let urlString = call.rawValue.appending(parameter).replacingOccurrences(of: "$key", with: apiKey)
+        let urlString = call.rawValue.appending(parameter).replacingOccurrences(of: "$key", with: ApiKey.apiKey.rawValue)
         guard let url = URL(string: urlString) else {
             return nil
         }
