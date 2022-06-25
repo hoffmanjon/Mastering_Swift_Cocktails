@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct CocktailsApp: App {
+    //For core data
+    @StateObject private var dataController = DataController()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView().environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }
