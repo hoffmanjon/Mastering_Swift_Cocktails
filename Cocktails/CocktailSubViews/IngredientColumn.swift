@@ -16,7 +16,7 @@ struct IngredientColumn: View {
         //Creating a vertical stack to layout the information
         VStack {
             //loading in the image of the ingredient asynchronously
-            CachedAsyncImage(url: URL(string: IngredientService.imageUrlfor(ingredient, imageSize: IngredientImagesSize.mediumimage))) { phase in
+            CachedAsyncImage(url: URL(string: IngredientService.imageUrlfor(ingredient, imageSize: .mediumimage))) { phase in
                 switch phase {
                 case .empty:
                     ProgressView()

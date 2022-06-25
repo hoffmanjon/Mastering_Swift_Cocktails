@@ -68,7 +68,7 @@ struct CocktailDetails: View {
         .onAppear() {
             Task {
                 //Load the information about the cocktail from the api using the ID of the drink.
-                if let cocktailsFromApi = await CocktailService.load(CocktailServiceCall.byid, parameter: cocktail.idDrink) {
+                if let cocktailsFromApi = await CocktailService.load(.byid, parameter: cocktail.idDrink) {
                     if cocktailsFromApi.drinks.count > 0 {
                         self.cocktail = cocktailsFromApi.drinks[0]
                     }

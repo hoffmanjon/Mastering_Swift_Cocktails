@@ -66,7 +66,7 @@ struct ContentView: View {
                     ScrollView(.horizontal) {
                         LazyHStack {
                             ForEach(ingredients, id: \.self) { ingredient in
-                                NavigationLink(destination: CocktailList(apiCall: CocktailServiceCall.byingredint, parameter: ingredient)) {
+                                NavigationLink(destination: CocktailList(apiCall: .byingredint, parameter: ingredient)) {
                                     IngredientColumn(ingredient: ingredient)
                                 }
                                 Divider()
@@ -78,7 +78,7 @@ struct ContentView: View {
                     //Horizontal stack to place two buttons side by side
                     HStack(alignment: .center) {
                         //Button to veiw drinks by first character
-                        NavigationLink(destination: CocktailList(apiCall: CocktailServiceCall.byletter, parameter: "A")) {
+                        NavigationLink(destination: CocktailList(apiCall: .byletter, parameter: "A")) {
                             VStack {
                                 Image("letterA").frame(width: 150, height: 150)
                                 Text("By Letter").font(.caption)
@@ -113,7 +113,7 @@ struct ContentView: View {
                 .onAppear() {
                     //Load list of popular drinks
                     Task {
-                        if let cocktailsFromApi = await CocktailService.load(CocktailServiceCall.popular, parameter: "") {
+                        if let cocktailsFromApi = await CocktailService.load(.popular, parameter: "") {
                             self.cocktails = cocktailsFromApi.drinks
                         }
                     }
@@ -128,7 +128,7 @@ struct ContentView: View {
                     }
                     //Load a random cocktail
                     Task {
-                        if let randomReturn = await CocktailService.load(CocktailServiceCall.random, parameter: "") {
+                        if let randomReturn = await CocktailService.load(.random, parameter: "") {
                             if randomReturn.drinks.count > 0 {
                                 randomCocktail = randomReturn.drinks.first
                             }

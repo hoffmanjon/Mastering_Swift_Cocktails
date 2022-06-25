@@ -43,7 +43,7 @@ struct BarView: View {
                     if firstAppear {
                         self.firstAppear = false
                         //Load the list of ingredients from the API using the load method from the IngredientsService struct
-                        if let ingredientsFromApi = await IngredientService.load(IngredientServiceCall.ingredientslist, parameter: "") {
+                        if let ingredientsFromApi = await IngredientService.load(.ingredientslist, parameter: "") {
                             //For each ingredient, load it inot the ingredients array
                             for ingredient in ingredientsFromApi.drinks {
                                 if let ingredientName = ingredient.strIngredient1 {

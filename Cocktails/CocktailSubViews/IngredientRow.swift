@@ -21,7 +21,7 @@ struct IngredientRow: View {
         //Creating a horizontal stack to layout the view
         HStack {
             //Load the image of the ingredient asynchronously
-            CachedAsyncImage(url: URL(string: IngredientService.imageUrlfor(ingredient.strIngredient1, imageSize: IngredientImagesSize.mediumimage))) { phase in
+            CachedAsyncImage(url: URL(string: IngredientService.imageUrlfor(ingredient.strIngredient1, imageSize: .mediumimage))) { phase in
                 switch phase {
                 case .empty:
                     ProgressView()

@@ -31,7 +31,7 @@ struct CocktailList: View {
     var body: some View {
         VStack {
             //Display the title for the list and the picker based on what API call is used to select the list of cocktails.
-            if apiCall == CocktailServiceCall.byletter {
+            if apiCall == .byletter {
                 Text("Drinks Beginning With").font(.headline)
                 Picker("",selection: $parameter) {
                     ForEach(characters, id: \.self) {
@@ -42,7 +42,7 @@ struct CocktailList: View {
                 .onReceive([self.parameter].publisher.first()) { (value) in
                     retrieveCocktails()
                 }
-            } else if apiCall == CocktailServiceCall.byingredint {
+            } else if apiCall == .byingredint {
                 Text("Drinks Containing").font(.headline)
                 Picker("",selection: $parameter) {
                     ForEach(ingredients, id: \.self) {
